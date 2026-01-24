@@ -29,7 +29,7 @@ html {
 body {
     font-family: var(--font-body);
     color: var(--color-dark);
-    line-height: 1.8;
+    line-height: 1.6;
     background-color: var(--color-beige);
     overflow-x: hidden;
 }
@@ -191,7 +191,7 @@ body {
 }
 
 .hero-title {
-    font-size: clamp(3rem, 10vw, 6rem);
+    font-size: clamp(3rem, 12vw, 6rem);
     font-weight: 800;
     color: var(--color-dark-red);
     text-transform: uppercase;
@@ -209,7 +209,7 @@ body {
 }
 
 .heart {
-    font-size: clamp(3rem, 8vw, 5rem);
+    font-size: clamp(3rem, 10vw, 5rem);
     display: inline-block;
     animation: heartbeat 2s infinite;
 }
@@ -220,7 +220,7 @@ body {
 }
 
 .hero-subtitle {
-    font-size: clamp(1.25rem, 4vw, 2rem);
+    font-size: clamp(1.5rem, 5vw, 2rem);
     font-weight: 600;
     color: var(--color-dark);
     line-height: 1.4;
@@ -236,7 +236,7 @@ body {
 }
 
 .scroll-indicator {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     font-weight: 600;
     color: var(--color-gray);
     opacity: 0;
@@ -262,15 +262,15 @@ body {
 }
 
 /* ===========================
-   INFO SECTIONS - ORGANIC SHAPES
+   INFO SECTIONS - COMPACT & MOBILE-FIRST
    =========================== */
 
 .info-section {
-    min-height: 100vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 4rem 2rem;
+    padding: 3rem 1.5rem;
     position: relative;
     opacity: 0;
     transform: translateX(-100px);
@@ -290,11 +290,12 @@ body {
     transform: translateX(0);
 }
 
-/* Section Content - Organic Shapes with Different Colors */
+/* Section Content - Organic Shapes with Larger Backgrounds */
 
 .section-content {
-    max-width: 900px;
-    padding: 3rem;
+    max-width: 600px;
+    width: 100%;
+    padding: 3rem 2.5rem;
     position: relative;
     backdrop-filter: blur(10px);
     border-radius: 50% 40% 60% 50% / 60% 50% 40% 50%;
@@ -472,90 +473,79 @@ body {
 }
 
 .section-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(1.75rem, 6vw, 3rem);
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: -1px;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     line-height: 1.1;
 }
 
 .text-block {
-    font-size: clamp(1rem, 2vw, 1.125rem);
-    line-height: 1.8;
+    font-size: clamp(1.125rem, 3.5vw, 1.25rem);
+    line-height: 1.6;
 }
 
 .text-block p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .text-block strong {
     font-weight: 700;
 }
 
-.text-block ul {
-    margin-top: 1rem;
-    margin-left: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.text-block li {
-    margin-bottom: 0.75rem;
-    line-height: 1.6;
-}
-
 .heart-accent {
     position: absolute;
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 6vw, 4rem);
     opacity: 0.3;
     animation: heartbeat 3s infinite;
 }
 
 .section-1 .heart-accent {
-    top: 2rem;
-    right: 2rem;
+    top: 1.5rem;
+    right: 1.5rem;
 }
 
 .section-2 .heart-accent {
-    bottom: 2rem;
-    left: 2rem;
+    bottom: 1.5rem;
+    left: 1.5rem;
 }
 
 .section-3 .heart-accent {
     top: 50%;
-    right: 2rem;
+    right: 1.5rem;
     transform: translateY(-50%);
 }
 
 .section-4 .heart-accent {
-    bottom: 2rem;
-    right: 2rem;
+    bottom: 1.5rem;
+    right: 1.5rem;
 }
 
 .section-5 .heart-accent {
-    top: 2rem;
-    left: 2rem;
+    top: 1.5rem;
+    left: 1.5rem;
 }
 
 .section-6 .heart-accent {
-    bottom: 2rem;
+    bottom: 1.5rem;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .section-7 .heart-accent {
-    top: 2rem;
-    right: 2rem;
+    top: 1.5rem;
+    right: 1.5rem;
 }
 
 .section-8 .heart-accent {
-    bottom: 2rem;
-    right: 2rem;
+    bottom: 1.5rem;
+    right: 1.5rem;
 }
 
 .section-9 .heart-accent {
     top: 50%;
-    left: 2rem;
+    left: 1.5rem;
     transform: translateY(-50%);
 }
 
@@ -564,11 +554,11 @@ body {
    =========================== */
 
 .contact-section {
-    min-height: 100vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 4rem 2rem;
+    padding: 3rem 1.5rem;
     position: relative;
     opacity: 0;
     transform: scale(0.9);
@@ -581,31 +571,32 @@ body {
 }
 
 .contact-content {
-    max-width: 700px;
+    max-width: 600px;
+    width: 100%;
     text-align: center;
     background: rgba(217, 102, 58, 0.95);
-    padding: 4rem 3rem;
+    padding: 3rem 2.5rem;
     color: var(--color-light);
     backdrop-filter: blur(10px);
     border-radius: 60% 40% 55% 45% / 50% 50% 60% 40%;
 }
 
 .contact-title {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: clamp(2rem, 7vw, 3.5rem);
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: -1px;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     color: var(--color-light);
 }
 
 .contact-info {
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    line-height: 1.8;
+    font-size: clamp(1.125rem, 3.5vw, 1.25rem);
+    line-height: 1.6;
 }
 
 .contact-info p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
 }
 
 .contact-info a {
@@ -620,16 +611,12 @@ body {
 }
 
 .branding {
-    margin-top: 3rem;
-    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
-}
-
-.websites {
-    font-size: clamp(0.875rem, 2vw, 1rem);
+    margin-top: 2rem;
+    font-size: clamp(1.125rem, 3vw, 1.5rem);
 }
 
 /* ===========================
-   RESPONSIVE DESIGN
+   MOBILE OPTIMIZATION
    =========================== */
 
 @media (max-width: 768px) {
@@ -638,18 +625,28 @@ body {
         height: 150px !important;
     }
     
+    .info-section {
+        min-height: 70vh;
+        padding: 2rem 1rem;
+    }
+    
     .section-content {
-        padding: 2rem 1.5rem;
-        border-radius: 40% 60% 50% 50% / 50% 50% 60% 40%;
+        padding: 2.5rem 2rem;
+        max-width: 90%;
+    }
+    
+    .contact-section {
+        min-height: 70vh;
+        padding: 2rem 1rem;
     }
     
     .contact-content {
-        padding: 3rem 2rem;
-        border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+        padding: 2.5rem 2rem;
+        max-width: 90%;
     }
     
-    .heart-accent {
-        font-size: 2.5rem;
+    .hero-section {
+        padding: 1.5rem;
     }
 }
 
@@ -659,13 +656,25 @@ body {
         height: 100px !important;
     }
     
+    .info-section {
+        min-height: 60vh;
+        padding: 1.5rem 0.75rem;
+    }
+    
     .section-content {
-        padding: 1.5rem 1rem;
+        padding: 2rem 1.5rem;
+        max-width: 95%;
         border-radius: 45% 55% 50% 50% / 50% 50% 55% 45%;
+    }
+    
+    .contact-section {
+        min-height: 60vh;
+        padding: 1.5rem 0.75rem;
     }
     
     .contact-content {
         padding: 2rem 1.5rem;
+        max-width: 95%;
         border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
     }
     
@@ -673,8 +682,8 @@ body {
         padding: 1rem;
     }
     
-    .info-section {
-        padding: 2rem 1rem;
+    .heart-accent {
+        font-size: 2rem !important;
     }
 }
 
