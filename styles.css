@@ -35,7 +35,7 @@ body {
 }
 
 /* ===========================
-   ANIMATED BACKGROUND
+   ANIMATED BACKGROUNDS
    =========================== */
 
 .animated-background {
@@ -45,10 +45,29 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-image: url('new-background.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.azubi-bg {
+    background-image: url('new-background.webp');
+    opacity: 1;
+}
+
+.ausbilder-bg {
+    background-image: url('ausbilder-background.webp');
+    opacity: 0;
+}
+
+body.show-ausbilder .azubi-bg {
+    opacity: 0;
+}
+
+body.show-ausbilder .ausbilder-bg {
+    opacity: 1;
 }
 
 .shape {
@@ -262,7 +281,120 @@ body {
 }
 
 /* ===========================
-   INFO SECTIONS - COMPACT & MOBILE-FIRST
+   CHOICE SECTION (WEICHE)
+   =========================== */
+
+.choice-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    position: relative;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 1s ease;
+}
+
+.choice-section.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.choice-content {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+.choice-title {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 800;
+    color: var(--color-dark-red);
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 3rem;
+}
+
+.choice-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.azubi-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.choice-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 2rem;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    min-height: 180px;
+}
+
+.choice-btn.small {
+    padding: 2rem 1.5rem;
+    min-height: 160px;
+}
+
+.choice-btn.full-width {
+    width: 100%;
+}
+
+.azubi-btn {
+    background: rgba(217, 102, 58, 0.95);
+    color: var(--color-light);
+}
+
+.azubi-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(217, 102, 58, 0.4);
+}
+
+.ausbilder-btn {
+    background: rgba(139, 38, 53, 0.95);
+    color: var(--color-light);
+}
+
+.ausbilder-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(139, 38, 53, 0.4);
+}
+
+.btn-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: heartbeat 2s infinite;
+}
+
+.btn-text {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+}
+
+.btn-subtext {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+/* ===========================
+   INFO SECTIONS
    =========================== */
 
 .info-section {
@@ -290,8 +422,6 @@ body {
     transform: translateX(0);
 }
 
-/* Section Content - Organic Shapes with Larger Backgrounds */
-
 .section-content {
     max-width: 600px;
     width: 100%;
@@ -301,37 +431,26 @@ body {
     border-radius: 30px;
 }
 
-/* Section 1 - Dark Red */
+/* Azubi Sections */
 .section-1 .section-content {
     background: rgba(139, 38, 53, 0.95);
     color: var(--color-light);
-    border-radius: 30px;
 }
 
 .section-1 .section-title {
     color: var(--color-beige);
 }
 
-.section-1 .text-block {
-    color: var(--color-light);
-}
-
 .section-1 .text-block strong {
     color: var(--color-mustard);
 }
 
-/* Section 2 - Orange */
 .section-2 .section-content {
     background: rgba(217, 102, 58, 0.95);
     color: var(--color-light);
-    border-radius: 30px;
 }
 
 .section-2 .section-title {
-    color: var(--color-light);
-}
-
-.section-2 .text-block {
     color: var(--color-light);
 }
 
@@ -339,75 +458,52 @@ body {
     color: var(--color-beige);
 }
 
-/* Section 3 - Mustard */
 .section-3 .section-content {
     background: rgba(217, 164, 65, 0.95);
     color: var(--color-dark);
-    border-radius: 30px;
 }
 
 .section-3 .section-title {
     color: var(--color-dark-red);
 }
 
-.section-3 .text-block {
-    color: var(--color-dark);
-}
-
 .section-3 .text-block strong {
     color: var(--color-dark-red);
 }
 
-/* Section 4 - Beige */
 .section-4 .section-content {
     background: rgba(232, 220, 200, 0.95);
     color: var(--color-dark);
-    border-radius: 30px;
 }
 
 .section-4 .section-title {
     color: var(--color-dark-red);
 }
 
-.section-4 .text-block {
-    color: var(--color-dark);
-}
-
 .section-4 .text-block strong {
     color: var(--color-orange);
 }
 
-/* Section 5 - Dark Red */
 .section-5 .section-content {
     background: rgba(139, 38, 53, 0.95);
     color: var(--color-light);
-    border-radius: 30px;
 }
 
 .section-5 .section-title {
     color: var(--color-beige);
 }
 
-.section-5 .text-block {
-    color: var(--color-light);
-}
-
 .section-5 .text-block strong {
     color: var(--color-mustard);
 }
 
-/* Section 6 - Orange */
+/* Ausbilder Sections */
 .section-6 .section-content {
     background: rgba(217, 102, 58, 0.95);
     color: var(--color-light);
-    border-radius: 30px;
 }
 
 .section-6 .section-title {
-    color: var(--color-light);
-}
-
-.section-6 .text-block {
     color: var(--color-light);
 }
 
@@ -415,61 +511,69 @@ body {
     color: var(--color-beige);
 }
 
-/* Section 7 - Mustard */
 .section-7 .section-content {
     background: rgba(217, 164, 65, 0.95);
     color: var(--color-dark);
-    border-radius: 30px;
 }
 
 .section-7 .section-title {
     color: var(--color-dark-red);
 }
 
-.section-7 .text-block {
-    color: var(--color-dark);
-}
-
 .section-7 .text-block strong {
     color: var(--color-dark-red);
 }
 
-/* Section 8 - Beige */
 .section-8 .section-content {
     background: rgba(232, 220, 200, 0.95);
     color: var(--color-dark);
-    border-radius: 30px;
 }
 
 .section-8 .section-title {
     color: var(--color-dark-red);
 }
 
-.section-8 .text-block {
-    color: var(--color-dark);
-}
-
 .section-8 .text-block strong {
     color: var(--color-orange);
 }
 
-/* Section 9 - Dark Red */
 .section-9 .section-content {
     background: rgba(139, 38, 53, 0.95);
     color: var(--color-light);
-    border-radius: 30px;
 }
 
 .section-9 .section-title {
     color: var(--color-beige);
 }
 
-.section-9 .text-block {
+.section-9 .text-block strong {
+    color: var(--color-mustard);
+}
+
+.section-10 .section-content {
+    background: rgba(217, 102, 58, 0.95);
     color: var(--color-light);
 }
 
-.section-9 .text-block strong {
-    color: var(--color-mustard);
+.section-10 .section-title {
+    color: var(--color-light);
+}
+
+.section-10 .text-block strong {
+    color: var(--color-beige);
+}
+
+.section-11 .section-content {
+    background: rgba(217, 164, 65, 0.95);
+    color: var(--color-dark);
+}
+
+.section-11 .section-title {
+    color: var(--color-dark-red);
+}
+
+.section-11 .text-block strong {
+    color: var(--color-dark-red);
 }
 
 .section-title {
@@ -499,54 +603,8 @@ body {
     font-size: clamp(2.5rem, 6vw, 4rem);
     opacity: 0.3;
     animation: heartbeat 3s infinite;
-}
-
-.section-1 .heart-accent {
     top: 1.5rem;
     right: 1.5rem;
-}
-
-.section-2 .heart-accent {
-    bottom: 1.5rem;
-    left: 1.5rem;
-}
-
-.section-3 .heart-accent {
-    top: 50%;
-    right: 1.5rem;
-    transform: translateY(-50%);
-}
-
-.section-4 .heart-accent {
-    bottom: 1.5rem;
-    right: 1.5rem;
-}
-
-.section-5 .heart-accent {
-    top: 1.5rem;
-    left: 1.5rem;
-}
-
-.section-6 .heart-accent {
-    bottom: 1.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.section-7 .heart-accent {
-    top: 1.5rem;
-    right: 1.5rem;
-}
-
-.section-8 .heart-accent {
-    bottom: 1.5rem;
-    right: 1.5rem;
-}
-
-.section-9 .heart-accent {
-    top: 50%;
-    left: 1.5rem;
-    transform: translateY(-50%);
 }
 
 /* ===========================
@@ -648,6 +706,19 @@ body {
     .hero-section {
         padding: 1.5rem;
     }
+    
+    .choice-section {
+        padding: 2rem 1rem;
+    }
+    
+    .choice-buttons {
+        gap: 1.5rem;
+    }
+    
+    .choice-btn {
+        padding: 2rem 1.5rem;
+        min-height: 150px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -684,6 +755,30 @@ body {
     
     .heart-accent {
         font-size: 2rem !important;
+    }
+    
+    .choice-section {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    .azubi-buttons {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .choice-btn {
+        padding: 1.5rem 1rem;
+        min-height: 130px;
+        border-radius: 20px;
+    }
+    
+    .choice-btn.small {
+        padding: 1.5rem 1rem;
+        min-height: 120px;
+    }
+    
+    .btn-icon {
+        font-size: 2.5rem;
     }
 }
 

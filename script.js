@@ -12,6 +12,11 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+            
+            // Hintergrund wechseln wenn Ausbilder-Bereich erreicht wird
+            if (entry.target.classList.contains('ausbilder-section')) {
+                document.body.classList.add('show-ausbilder');
+            }
         }
     });
 }, observerOptions);
@@ -32,6 +37,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     }, 100);
 });
+
+// ===========================
+// SCROLL TO AUSBILDER
+// ===========================
+
+function scrollToAusbilder() {
+    const ausbilderBereich = document.getElementById('ausbilder-bereich');
+    if (ausbilderBereich) {
+        ausbilderBereich.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+        // Hintergrund sofort wechseln
+        document.body.classList.add('show-ausbilder');
+    }
+}
 
 // ===========================
 // SMOOTH SCROLL
@@ -77,34 +98,23 @@ window.addEventListener('scroll', () => {
 });
 
 // ===========================
-// SCROLL PROGRESS INDICATOR
+// BACKGROUND SWITCH ON SCROLL
 // ===========================
 
 window.addEventListener('scroll', () => {
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    
-    // Optional: Progress Bar hinzufügen
-    // document.getElementById('progressBar').style.width = scrolled + '%';
+    const ausbilderBereich = document.getElementById('ausbilder-bereich');
+    if (ausbilderBereich) {
+        const rect = ausbilderBereich.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        // Wenn Ausbilder-Bereich zu 30% sichtbar ist
+        if (rect.top < windowHeight * 0.7) {
+            document.body.classList.add('show-ausbilder');
+        } else {
+            document.body.classList.remove('show-ausbilder');
+        }
+    }
 });
-
-// ===========================
-// PERFORMANCE OPTIMIZATION
-// ===========================
-
-// Debounce function
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
 
 // ===========================
 // TOUCH GESTURES (Mobile)
